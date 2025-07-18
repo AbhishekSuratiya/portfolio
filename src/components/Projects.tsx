@@ -1,0 +1,204 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { ExternalLink, Github, Eye } from 'lucide-react';
+
+const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeProject, setActiveProject] = useState(0);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const projects = [
+    {
+      title: "Planify App",
+      description: "A fintech platform connecting investors with startups. Features OTP-less & Social Logins, Deep Linking with Branch.io, and Over-the-Air (OTA) Updates.",
+      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React Native", "TypeScript", "Zustand", "Sentry", "Branch.io", "Supabase"],
+      github: "#",
+      live: "#",
+      category: "Mobile"
+    },
+    {
+      title: "Planify Website",
+      description: "The web counterpart to the Planify platform with Rich Text Editing, Dynamic Homepage Content, and Reusable UI Theme components.",
+      image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["Next.js", "TypeScript", "TanStack Query", "Zustand", "Styled Components"],
+      github: "#",
+      live: "#",
+      category: "Web"
+    },
+    {
+      title: "YARA Agricultural App",
+      description: "A comprehensive mobile application for agricultural solutions with Crop Management, Weather Integration, and Farm Analytics.",
+      image: "https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React Native", "Redux", "Firebase", "Maps Integration", "Push Notifications"],
+      github: "#",
+      live: "#",
+      category: "Mobile"
+    },
+    {
+      title: "AWS IoT Bingsu",
+      description: "An IoT application created for an AWS event with Real-time sensor monitoring, Live video streaming (KVS), and QR Code Scanner.",
+      image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React Native", "AWS SDK", "IoT Sitewise", "Kinesis Video Streams", "TypeScript"],
+      github: "#",
+      live: "#",
+      category: "Mobile"
+    },
+    {
+      title: "Corruption Watchdog",
+      description: "A public awareness platform for monitoring and reporting corruption with Interactive Corruption Map, Country-specific Statistics, and Data Filtering.",
+      image: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React", "Next.js", "Leaflet.js", "Chart.js", "DataTables"],
+      github: "#",
+      live: "#",
+      category: "Web"
+    },
+    {
+      title: "Fintron Invest",
+      description: "A modern investment platform built for a client with Secure Authentication, Modern UI Designs, and User Portfolio Management.",
+      image: "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React Native", "Native Base", "Redux", "Modern UI/UX"],
+      github: "#",
+      live: "#",
+      category: "Mobile"
+    }
+  ];
+
+  const categories = ["All", "Mobile", "Web"];
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
+
+  return (
+    <section id="projects" ref={projectsRef} className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            My <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Projects</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
+          <p className="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and creativity
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-300 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
+                  : 'bg-white text-gray-600 hover:text-purple-600 hover:shadow-md'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={index}
+              className={`group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                    <a
+                      href={project.github}
+                      className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
+                    >
+                      <Github size={20} />
+                    </a>
+                    <a
+                      href={project.live}
+                      className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                  <span className="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">
+                    {project.category}
+                  </span>
+                </div>
+                
+                <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex gap-3">
+                  <a
+                    href={project.github}
+                    className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2"
+                  >
+                    <Github size={16} />
+                    Code
+                  </a>
+                  <a
+                    href={project.live}
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <Eye size={16} />
+                    Live
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
