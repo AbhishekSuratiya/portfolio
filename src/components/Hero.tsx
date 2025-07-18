@@ -59,8 +59,8 @@ const Hero = () => {
               onClick={handleResumeClick}
               className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2"
             >
-              <Download size={20} />
-              Download Resume
+              <Eye size={20} />
+              Preview Resume
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </button>
             
@@ -68,7 +68,7 @@ const Hero = () => {
               href="#projects"
               className="group border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-purple-600 hover:text-white hover:scale-105 flex items-center gap-2"
             >
-              <Eye size={20} />
+              <Download size={20} />
               View My Work
             </a>
           </div>
@@ -106,9 +106,10 @@ const Hero = () => {
             </div>
             <div className="flex-1 p-4">
               <iframe
-                src="https://raw.githubusercontent.com/AbhishekSuratiya/data/main/Resume%202025.pdf"
+                src="https://raw.githubusercontent.com/AbhishekSuratiya/data/main/Resume%202025.pdf#toolbar=1&navpanes=1&scrollbar=1"
                 className="w-full h-full border-0 rounded-lg"
                 title="Resume Preview"
+                allow="fullscreen"
               />
             </div>
           </div>
