@@ -109,7 +109,7 @@ const Hero = () => {
                 src="https://raw.githubusercontent.com/AbhishekSuratiya/data/main/Resume%202025.pdf#toolbar=1&navpanes=1&scrollbar=1"
                 className="w-full h-full border-0 rounded-lg"
                 title="Resume Preview"
-                allow="fullscreen"
+               allowFullScreen
               />
             </div>
           </div>
