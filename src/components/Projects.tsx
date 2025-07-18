@@ -29,8 +29,8 @@ const Projects = () => {
       description: "A fintech platform connecting investors with startups. Features OTP-less & Social Logins, Deep Linking with Branch.io, and Over-the-Air (OTA) Updates.",
       image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["React Native", "TypeScript", "Zustand", "Sentry", "Branch.io", "Supabase"],
-      github: "#",
-      live: "#",
+      github: "",
+      live: "https://play.google.com/store/apps/details?id=com.planify&hl=en_IN",
       category: "Mobile"
     },
     {
@@ -38,17 +38,17 @@ const Projects = () => {
       description: "The web counterpart to the Planify platform with Rich Text Editing, Dynamic Homepage Content, and Reusable UI Theme components.",
       image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["Next.js", "TypeScript", "TanStack Query", "Zustand", "Styled Components"],
-      github: "#",
-      live: "#",
+      github: "",
+      live: "https://www.planify.in/",
       category: "Web"
     },
     {
-      title: "YARA Agricultural App",
+      title: "Yara Connect",
       description: "A comprehensive mobile application for agricultural solutions with Crop Management, Weather Integration, and Farm Analytics.",
       image: "https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["React Native", "Redux", "Firebase", "Maps Integration", "Push Notifications"],
-      github: "#",
-      live: "#",
+      github: "",
+      live: "https://play.google.com/store/apps/details?id=com.yara.connect.prod&hl=en_IN",
       category: "Mobile"
     },
     {
@@ -56,8 +56,8 @@ const Projects = () => {
       description: "An IoT application created for an AWS event with Real-time sensor monitoring, Live video streaming (KVS), and QR Code Scanner.",
       image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["React Native", "AWS SDK", "IoT Sitewise", "Kinesis Video Streams", "TypeScript"],
-      github: "#",
-      live: "#",
+      github: "https://github.com/AbhishekSuratiya/bingsu.git",
+      live: "",
       category: "Mobile"
     },
     {
@@ -65,8 +65,8 @@ const Projects = () => {
       description: "A public awareness platform for monitoring and reporting corruption with Interactive Corruption Map, Country-specific Statistics, and Data Filtering.",
       image: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["React", "Next.js", "Leaflet.js", "Chart.js", "DataTables"],
-      github: "#",
-      live: "#",
+      github: "https://github.com/AbhishekSuratiya/corruptionWatchDog.git",
+      live: "https://corruptionwatchdog.netlify.app/",
       category: "Web"
     },
     {
@@ -74,8 +74,8 @@ const Projects = () => {
       description: "A modern investment platform built for a client with Secure Authentication, Modern UI Designs, and User Portfolio Management.",
       image: "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["React Native", "Native Base", "Redux", "Modern UI/UX"],
-      github: "#",
-      live: "#",
+      github: "",
+      live: "https://www.fintroninvest.com/home",
       category: "Mobile"
     }
   ];
@@ -139,18 +139,22 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                    <a
-                      href={project.github}
-                      className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                    <a
-                      href={project.live}
-                      className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -177,20 +181,24 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
-                  <a
-                    href={project.live}
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <Eye size={16} />
-                    Live
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className={`${project.github ? 'flex-1' : 'w-full'} bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2`}
+                    >
+                      <Eye size={16} />
+                      Live
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

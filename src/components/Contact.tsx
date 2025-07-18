@@ -50,9 +50,8 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, link: "#", name: "GitHub" },
-    { icon: <Linkedin className="w-6 h-6" />, link: "#", name: "LinkedIn" },
-    { icon: <Twitter className="w-6 h-6" />, link: "#", name: "Twitter" }
+    { icon: <Github className="w-6 h-6" />, link: "https://github.com/AbhishekSuratiya", name: "GitHub" },
+    { icon: <Linkedin className="w-6 h-6" />, link: "https://www.linkedin.com/in/abhishek-suratiya-401ba9132/", name: "LinkedIn" }
   ];
 
   return (

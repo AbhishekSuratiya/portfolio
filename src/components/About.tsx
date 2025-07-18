@@ -83,7 +83,7 @@ const About = () => {
               Passionate Developer & Designer
             </h3>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              I'm a full-stack developer with over 3 years of experience creating digital experiences 
+              I'm a full-stack developer with over 5 years of experience creating digital experiences 
               that are not only functional but also beautiful. I specialize in React, Node.js, and 
               modern web technologies, with a keen eye for design and user experience.
             </p>
