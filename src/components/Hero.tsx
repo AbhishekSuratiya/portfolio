@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Download, Eye } from 'lucide-react';
+import { ChevronDown, Download, Eye, X } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [showModal, setShowModal] = React.useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -21,8 +22,13 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const handleResumeClick = () => {
+    setShowModal(true);
+  };
+
   return (
-    <section id="home" ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <>
+      <section id="home" ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -49,16 +55,22 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2">
+            <button 
+              onClick={handleResumeClick}
+              className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2"
+            >
               <Download size={20} />
               Download Resume
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </button>
             
-            <button className="group border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-purple-600 hover:text-white hover:scale-105 flex items-center gap-2">
+            <a 
+              href="#projects"
+              className="group border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-purple-600 hover:text-white hover:scale-105 flex items-center gap-2"
+            >
               <Eye size={20} />
               View My Work
-            </button>
+            </a>
           </div>
         </div>
         
@@ -66,7 +78,43 @@ const Hero = () => {
           <ChevronDown size={32} className="text-gray-400" />
         </div>
       </div>
-    </section>
+      </section>
+
+      {/* Resume PDF Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg w-full max-w-4xl h-full max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h3 className="text-xl font-bold text-gray-800">Resume Preview</h3>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://github.com/AbhishekSuratiya/data/blob/main/Resume%202025.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+                >
+                  <Download size={16} />
+                  Download PDF
+                </a>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-500 hover:text-gray-700 p-2"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+            </div>
+            <div className="flex-1 p-4">
+              <iframe
+                src="https://github.com/AbhishekSuratiya/data/blob/main/Resume%202025.pdf"
+                className="w-full h-full border-0 rounded-lg"
+                title="Resume Preview"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

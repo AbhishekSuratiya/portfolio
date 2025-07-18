@@ -87,6 +87,8 @@ const Contact = () => {
                 <a
                   key={index}
                   href={info.link}
+                  target={info.link.startsWith('http') ? '_blank' : '_self'}
+                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
                   className="flex items-center gap-4 p-6 bg-gray-50 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 transition-all duration-300 group hover:shadow-lg"
                 >
                   <div className="text-purple-600 group-hover:scale-110 transition-transform duration-300">
@@ -107,6 +109,8 @@ const Contact = () => {
                   <a
                     key={index}
                     href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:shadow-lg"
                     title={social.name}
                   >

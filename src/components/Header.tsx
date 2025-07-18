@@ -38,13 +38,26 @@ const Header = () => {
               </a>
             ))}
             <div className="flex items-center space-x-4 ml-6">
-              <a href="https://github.com/AbhishekSuratiya" className="text-gray-700 hover:text-purple-600 transition-colors duration-300">
+              <a 
+                href="https://github.com/AbhishekSuratiya" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-300"
+              >
                 <Github size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/abhishek-suratiya-401ba9132/" className="text-gray-700 hover:text-purple-600 transition-colors duration-300">
+              <a 
+                href="https://www.linkedin.com/in/abhishek-suratiya-401ba9132/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-300"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:a.k.suratiya@gmail.com" className="text-gray-700 hover:text-purple-600 transition-colors duration-300">
+              <a 
+                href="mailto:a.k.suratiya@gmail.com" 
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-300"
+              >
                 <Mail size={20} />
               </a>
             </div>

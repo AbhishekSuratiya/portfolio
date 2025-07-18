@@ -110,12 +110,12 @@ const Skills = () => {
 
       </div>
       
-      {/* Floating Elements - Fixed at bottom of section */}
-      <div className="absolute bottom-8 left-0 right-0">
+      {/* Floating Elements - Fixed at bottom of viewport */}
+      <div className="fixed bottom-8 left-0 right-0 pointer-events-none z-10">
         <div className="container mx-auto px-6 relative">
-          <div className="absolute left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-float"></div>
-          <div className="absolute right-1/4 w-6 h-6 bg-blue-400 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-float opacity-60"></div>
+          <div className="absolute right-1/4 w-6 h-6 bg-blue-400 rounded-full animate-float animation-delay-1000 opacity-60"></div>
+          <div className="absolute left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-float animation-delay-2000 opacity-60"></div>
         </div>
       </div>
     </section>

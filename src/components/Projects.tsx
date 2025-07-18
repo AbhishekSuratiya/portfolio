@@ -142,6 +142,8 @@ const Projects = () => {
                     {project.github && (
                       <a
                         href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
                       >
                         <Github size={20} />
@@ -150,6 +152,8 @@ const Projects = () => {
                     {project.live && (
                       <a
                         href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors duration-300"
                       >
                         <ExternalLink size={20} />
@@ -184,6 +188,8 @@ const Projects = () => {
                   {project.github && (
                     <a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2"
                     >
                       <Github size={16} />
@@ -193,6 +199,8 @@ const Projects = () => {
                   {project.live && (
                     <a
                       href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`${project.github ? 'flex-1' : 'w-full'} bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2`}
                     >
                       <Eye size={16} />
