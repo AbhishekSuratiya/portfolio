@@ -88,7 +88,7 @@ const Hero = () => {
               <h3 className="text-xl font-bold text-gray-800">Resume Preview</h3>
               <div className="flex items-center gap-4">
                 <a
-                  href="https://github.com/AbhishekSuratiya/data/blob/main/Resume%202025.pdf"
+                  href="https://raw.githubusercontent.com/AbhishekSuratiya/data/main/Resume%202025.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-2"
@@ -106,7 +106,7 @@ const Hero = () => {
             </div>
             <div className="flex-1 p-4">
               <iframe
-                src="https://github.com/AbhishekSuratiya/data/blob/main/Resume%202025.pdf"
+                src="https://raw.githubusercontent.com/AbhishekSuratiya/data/main/Resume%202025.pdf"
                 className="w-full h-full border-0 rounded-lg"
                 title="Resume Preview"
               />
