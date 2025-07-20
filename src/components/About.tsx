@@ -64,9 +64,9 @@ const About = () => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 to-blue-500 rounded-full p-1">
                 <div className="w-full h-full bg-gray-100 rounded-full flex items-center justify-center">
-                  <img 
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                    alt="Abhishek" 
+                  <img
+                    src="https://i.ibb.co/GvTKYXgT/abhi.jpg"
+                    alt="Abhishek"
                     className="w-72 h-72 rounded-full object-cover"
                   />
                 </div>
@@ -83,18 +83,18 @@ const About = () => {
               Passionate Developer & Designer
             </h3>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              I'm a full-stack developer with over 5 years of experience creating digital experiences 
-              that are not only functional but also beautiful. I specialize in React, Node.js, and 
+              I'm a full-stack developer with over 5 years of experience creating digital experiences
+              that are not only functional but also beautiful. I specialize in React, Node.js, and
               modern web technologies, with a keen eye for design and user experience.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+              When I'm not coding, you'll find me exploring new technologies, contributing to open-source
               projects, or sketching out ideas for my next creative project.
             </p>
 
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   className={`p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
