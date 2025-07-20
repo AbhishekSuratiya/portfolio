@@ -27,7 +27,7 @@ const Projects = () => {
     {
       title: "Planify App",
       description: "A fintech platform connecting investors with startups. Features OTP-less & Social Logins, Deep Linking with Branch.io, and Over-the-Air (OTA) Updates.",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://i.ibb.co/cS9vDN2p/Screenshot-2025-07-21-at-2-46-58-AM.png",
       technologies: ["React Native", "TypeScript", "Zustand", "Sentry", "Branch.io", "Supabase"],
       github: "",
       live: "https://play.google.com/store/apps/details?id=com.planify&hl=en_IN",
@@ -36,7 +36,7 @@ const Projects = () => {
     {
       title: "Planify Website",
       description: "The web counterpart to the Planify platform with Rich Text Editing, Dynamic Homepage Content, and Reusable UI Theme components.",
-      image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://i.ibb.co/cS9vDN2p/Screenshot-2025-07-21-at-2-46-58-AM.png",
       technologies: ["Next.js", "TypeScript", "TanStack Query", "Zustand", "Styled Components"],
       github: "",
       live: "https://www.planify.in/",
@@ -45,7 +45,7 @@ const Projects = () => {
     {
       title: "Yara Connect",
       description: "A comprehensive mobile application for agricultural solutions with Crop Management, Weather Integration, and Farm Analytics.",
-      image: "https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://i.ibb.co/SDYk00Wv/Screenshot-2025-07-21-at-2-51-29-AM.png",
       technologies: ["React Native", "Redux", "Firebase", "Maps Integration", "Push Notifications"],
       github: "",
       live: "https://play.google.com/store/apps/details?id=com.yara.connect.prod&hl=en_IN",
@@ -63,7 +63,7 @@ const Projects = () => {
     {
       title: "Corruption Watchdog",
       description: "A public awareness platform for monitoring and reporting corruption with Interactive Corruption Map, Country-specific Statistics, and Data Filtering.",
-      image: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://i.ibb.co/846p5mcV/Screenshot-2025-07-21-at-2-53-16-AM.png",
       technologies: ["React", "Next.js", "Leaflet.js", "Chart.js", "DataTables"],
       github: "https://github.com/AbhishekSuratiya/corruptionWatchDog.git",
       live: "https://corruptionwatchdog.netlify.app/",
@@ -72,7 +72,7 @@ const Projects = () => {
     {
       title: "Fintron Invest",
       description: "A modern investment platform built for a client with Secure Authentication, Modern UI Designs, and User Portfolio Management.",
-      image: "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://i.ibb.co/r2Stw6rG/Screenshot-2025-07-21-at-2-55-02-AM.png",
       technologies: ["React Native", "Native Base", "Redux", "Modern UI/UX"],
       github: "",
       live: "https://www.fintroninvest.com/home",
@@ -83,8 +83,8 @@ const Projects = () => {
   const categories = ["All", "Mobile", "Web"];
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
+  const filteredProjects = activeCategory === "All"
+    ? projects
     : projects.filter(project => project.category === activeCategory);
 
   return (
@@ -135,7 +135,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110 object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
@@ -162,7 +162,7 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
@@ -170,9 +170,9 @@ const Projects = () => {
                     {project.category}
                   </span>
                 </div>
-                
+
                 <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -183,7 +183,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex gap-3">
                   {project.github && (
                     <a
