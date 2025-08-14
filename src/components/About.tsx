@@ -46,7 +46,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" ref={aboutRef} className="py-20 bg-gray-50">
+    <section id="about" ref={aboutRef} className="py-20 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
