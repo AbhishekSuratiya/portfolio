@@ -71,7 +71,7 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <div 
+            <div
               key={category.title}
               className={`bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -81,7 +81,7 @@ const Skills = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
                 {category.title}
               </h3>
-              
+
               <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name} className="relative">
@@ -89,11 +89,11 @@ const Skills = () => {
                       <span className="text-gray-700 font-medium">{skill.name}</span>
                       <span className="text-gray-500 text-sm">{skill.level}%</span>
                     </div>
-                    
+
                     <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                      <div 
+                      <div
                         className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
-                        style={{ 
+                        style={{
                           width: isVisible ? `${skill.level}%` : '0%',
                           transitionDelay: `${(categoryIndex * 200) + (skillIndex * 100)}ms`
                         }}
@@ -109,15 +109,15 @@ const Skills = () => {
         </div>
 
       </div>
-      
+
       {/* Floating Elements - Fixed at bottom of viewport */}
-      <div className="fixed bottom-8 left-0 right-0 pointer-events-none z-10">
-        <div className="container mx-auto px-6 relative">
-          <div className="absolute left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-float opacity-60"></div>
-          <div className="absolute right-1/4 w-6 h-6 bg-blue-400 rounded-full animate-float animation-delay-1000 opacity-60"></div>
-          <div className="absolute left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-float animation-delay-2000 opacity-60"></div>
-        </div>
-      </div>
+      {/*<div className="fixed bottom-8 left-0 right-0 pointer-events-none z-10">*/}
+      {/*  <div className="container mx-auto px-6 relative">*/}
+      {/*    <div className="absolute left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-float opacity-60"></div>*/}
+      {/*    <div className="absolute right-1/4 w-6 h-6 bg-blue-400 rounded-full animate-float animation-delay-1000 opacity-60"></div>*/}
+      {/*    <div className="absolute left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-float animation-delay-2000 opacity-60"></div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </section>
   );
 };
