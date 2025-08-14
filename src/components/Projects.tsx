@@ -1,26 +1,57 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeProject, setActiveProject] = useState(0);
   const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    let observer: IntersectionObserver | null = null;
+    let hasRevealed = false;
 
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
+    const target = projectsRef.current;
+    if (!target) return;
+
+    const reveal = () => {
+      if (!hasRevealed) {
+        hasRevealed = true;
+        setIsVisible(true);
+        if (observer) observer.disconnect();
+        window.removeEventListener('scroll', onScrollOrResize);
+        window.removeEventListener('resize', onScrollOrResize);
+      }
+    };
+
+    const onScrollOrResize = () => {
+      const rect = target.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < viewportHeight * 0.9 && rect.bottom > 0) {
+        reveal();
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            reveal();
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+      );
+      observer.observe(target);
     }
 
-    return () => observer.disconnect();
+    // Fallback in case IntersectionObserver doesn't fire
+    onScrollOrResize();
+    window.addEventListener('scroll', onScrollOrResize, { passive: true } as EventListenerOptions);
+    window.addEventListener('resize', onScrollOrResize);
+
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('scroll', onScrollOrResize as EventListener);
+      window.removeEventListener('resize', onScrollOrResize as EventListener);
+    };
   }, []);
 
   const projects = [
@@ -88,7 +119,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" ref={projectsRef} className="py-20 bg-gray-50">
+    <section id="projects" ref={projectsRef} className="py-20 bg-gray-50 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

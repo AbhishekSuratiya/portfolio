@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Code, Palette, Zap, Heart } from 'lucide-react';
+import {useEffect, useRef, useState} from 'react';
+import {Code, Heart, Palette, Zap} from 'lucide-react';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,12 +84,11 @@ const About = () => {
             </h3>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               I'm a full-stack developer with over 5 years of experience creating digital experiences
-              that are not only functional but also beautiful. I specialize in React, Node.js, and
+              that are not only functional but also beautiful. I specialize in React, React Native, and
               modern web technologies, with a keen eye for design and user experience.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source
-              projects, or sketching out ideas for my next creative project.
+              When I'm not coding, you'll find me exploring new technologies or sketching out ideas for my next creative project.
             </p>
 
             <div className="grid grid-cols-2 gap-6">

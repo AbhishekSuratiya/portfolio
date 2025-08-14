@@ -45,7 +45,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <div className="text-xl md:text-2xl text-gray-600 mb-8 h-8">
+          <div className="text-xl md:text-2xl text-gray-600 mb-8 md:h-8 leading-snug">
             <span className="typewriter">Lead Software Developer | React Native & Next.js Specialist</span>
           </div>
 

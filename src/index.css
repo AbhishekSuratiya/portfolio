@@ -168,6 +168,9 @@ body {
 @media (max-width: 768px) {
   .typewriter {
     font-size: 1.2rem;
+    white-space: normal;
+    border-right: 0;
+    animation: none;
   }
 }
 
